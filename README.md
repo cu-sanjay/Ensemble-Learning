@@ -1,126 +1,218 @@
-# Ensemble Learning for Pulmonary Disease Detection System
+# Pulmonary Disease Detection System using Ensemble Learning
 
-## Project Overview
-This project focuses on the development of an ensemble learning system for detecting pulmonary diseases, with a specific emphasis on Chronic Obstructive Pulmonary Disease (COPD). The system leverages deep learning models (Custom CNN, ResNet50, VGG16) combined with an XGBoost meta-learner to achieve high-accuracy classification of chest X-ray images. The project uses the **Lung Disease Dataset (4 types)** from Kaggle, containing approximately 10.1k images across five classes: Bacterial Pneumonia, Corona Virus Disease, Normal, Tuberculosis, and Viral Pneumonia.
+## Introduction
 
-### Research Objectives
-1. **Review State-of-the-Art Methods**: Analyze current deep learning and ensemble learning approaches for pulmonary disease detection, particularly for COPD.
-2. **Propose an Ensemble Learning System**: Develop a detection system for COPD using an ensemble of machine learning models, including deep learning architectures.
-3. **Integrate Advanced Techniques**: Combine multiple deep learning models with sophisticated feature extraction to improve detection accuracy.
+This project presents an ensemble learning based pulmonary disease detection system using chest X-ray images. It integrates a custom Convolutional Neural Network with pre-trained models and a meta-learner to improve classification performance across multiple lung disease categories. It is designed for research, experimentation, and deployment through both Google Colab and a Streamlit web interface.
 
-### Dataset
-- **Source**: [Lung Disease Dataset (4 types)](https://www.kaggle.com/datasets/omkarmanohardalvi/lungs-disease-dataset-4-types) on Kaggle.
-- **Structure**: ~10.1k chest X-ray images (.jpeg, .jpg, .png) split into:
-  - **Train**: Images for training the models.
-  - **Validation**: Images for hyperparameter tuning and validation.
-  - **Test**: Images for final evaluation.
-- **Classes**: 
-  - Bacterial Pneumonia
-  - Corona Virus Disease
-  - Normal
-  - Tuberculosis
-  - Viral Pneumonia
-> **Note**: The dataset does not explicitly label COPD. The system is designed to detect general pulmonary diseases, with adaptability for COPD-specific detection if additional data or labels are provided.
+This work aligns with the study *Development of Ensemble Learning Algorithms for Pulmonary Disease Detection System* by S. Choudhary, A. P. Singh and A. Tiwari, published in the 2025 International Conference on Data Science, Agents and Artificial Intelligence (ICDSAAI), Chennai, India.
+DOI: 10.1109/ICDSAAI65575.2025.11011653.
 
-## Project Structure
-The project is implemented as a **Google Colab notebook** (**Pulmonary_Disease_Detection_Ensemble.ipynb**) that includes:
-- Data loading and preprocessing with augmentation.
-- Training a custom Convolutional Neural Network (CNN).
-- Feature extraction using pre-trained ResNet50 and VGG16 models.
-- Ensemble learning with XGBoost as the meta-learner.
-- Evaluation with accuracy, precision, recall, F1-score, and confusion matrix.
-- Visualization of training history and results.
-- Saving models, plots, and metrics to Google Drive.
+# Project Title
 
-## Prerequisites
-To run the project, you need:
-- **Google Colab Account**: Access to **[Google Colab](https://colab.research.google.com/)** with GPU support.
-- **Kaggle Account**: For downloading the dataset via the Kaggle API.
-- **Google Drive**: For saving models, plots, and metrics.
-- **Kaggle API Key**:
-  - Generate a **kaggle.json** file from Kaggle (Account > API > Create New API Token).
-  - Upload this file when prompted in Colab.
+**Development of Ensemble Learning Algorithms for Pulmonary Disease Detection System**
 
-### Dependencies
-The project uses the following Python libraries, which are installed automatically in the Colab notebook:
-- **tensorflow** (for deep learning models)
-- **opencv-python** (for image processing)
-- **xgboost** (for ensemble meta-learner)
-- **scikit-learn** (for evaluation metrics)
-- **seaborn**, **matplotlib** (for visualization)
-- **kaggle** (for dataset download)
-- **numpy**, **pandas** (for data handling)
+# Project Objectives
 
-## Setup and Installation
-1. **Open Google Colab**:
-   - Create a new notebook in **[Google Colab](https://colab.research.google.com/)**.
-2. **Copy the Code**:
-   - Copy the contents of **Pulmonary_Disease_Detection_Ensemble.ipynb** into the Colab notebook. The notebook is provided separately or can be obtained from the project repository.
-3. **Enable GPU**:
-   - Go to **Runtime > Change runtime type > Hardware accelerator > GPU** to enable GPU acceleration for faster training.
-4. **Set Up Kaggle API**:
-   - When prompted by the notebook, upload your **kaggle.json** file (downloaded from Kaggle).
-   - The notebook will configure the Kaggle API and download the dataset.
-5. **Mount Google Drive**:
-   - Follow the prompt to mount your Google Drive, where outputs (models, plots, metrics) will be saved.
+1. Review the current methods used for detecting pulmonary diseases, with emphasis on Chronic Obstructive Pulmonary Disease.
+2. Develop an ensemble detection system that integrates machine learning and deep learning models.
+3. Improve accuracy by combining multiple feature extraction and classification methods.
+4. Provide a practical deployment platform using a Streamlit web application.
 
-## Running the Project
-1. **Execute the Notebook**:
-   - Run all cells in the Colab notebook sequentially (`Ctrl+F9` or `Runtime > Run all`).
-   - The notebook will:
-     - Install dependencies.
-     - Download and unzip the Lung Disease Dataset.
-     - Preprocess images with data augmentation and normalization.
-     - Train a custom CNN for 10 epochs.
-     - Extract features using ResNet50 and VGG16.
-     - Train an XGBoost meta-learner on combined features.
-     - Evaluate the ensemble model on validation and test sets.
-     - Generate and save plots (training history, confusion matrix).
-     - Save models and metrics to Google Drive.
-2. **Monitor Outputs**:
-   - Check the Colab output for training progress, evaluation metrics, and visualizations.
-   - Outputs are saved to **📁 /content/drive/MyDrive/** in your Google Drive.
+# Team Members
 
-## Outputs
-The project generates the following outputs, saved to Google Drive:
-- **Models**:
-  - `cnn_model.h5`: Trained custom CNN model.
-  - `xgb_model.json`: Trained XGBoost meta-learner.
-- **Plots**:
-  - `cnn_training_plot.png`: Training and validation accuracy/loss for the CNN.
-  - `confusion_matrix.png`: Confusion matrix for the ensemble model on the test set.
-- **Metrics**:
-  - `metrics.txt`: Validation and test metrics (accuracy, precision, recall, F1-score).
-- **Console Output**:
-  - Training logs, evaluation metrics, and confusion matrix visualization displayed in Colab.
+* Ajay
+* Ashwani
+* Pragati
+* Sanjay
 
-## Expected Results
-- **Custom CNN**: Achieves moderate accuracy after 10 epochs, serving as a baseline.
-- **Ensemble Model**: Combines features from CNN, ResNet50, and VGG16, typically achieving test accuracy >90% (depending on dataset balance and augmentation).
-- **Metrics**: Includes accuracy, precision, recall, and F1-score for both validation and test sets.
-- **Visualizations**: Training history plots and a confusion matrix to assess model performance across classes.
+## Supervisor
 
-## Notes for Research
-- **COPD Detection**: The dataset does not explicitly label COPD. The system detects general pulmonary diseases but is designed to be adaptable for COPD with additional data (e.g., spirometry or COPD-labeled X-rays). For COPD-specific enhancements, consider:
-  - Labeling a subset of Pneumonia/Tuberculosis images as COPD proxies.
-  - Integrating clinical data or feature selection (e.g., Mayfly optimization).
-- **Performance**: The ensemble approach leverages transfer learning and data augmentation to handle dataset challenges (e.g., imbalanced classes). Results depend on data quality and preprocessing.
-- **Documentation**: Use the notebook’s markdown sections (literature review, conclusion) and saved outputs (metrics, plots) for your thesis. Expand the literature review with additional references as needed.
-- **Future Work**:
-  - Experiment with additional models (e.g., DenseNet, InceptionV3).
-  - Implement 3D CNNs for CT scans if available.
-  - Explore advanced feature selection techniques.
+**Ajay Pal Singh (E13293)**
 
-## Troubleshooting
-- **Kaggle API Issues**: Ensure your **kaggle.json** file is valid and has not expired. Re-generate it from Kaggle if needed.
-- **Memory Errors**: If Colab runs out of memory, reduce the batch size (**BATCH_SIZE**) or image size (**IMG_SIZE**) in the notebook.
-- **Dataset Download Fails**: Verify your Kaggle account has access to the dataset and that the API key is correctly configured.
-- **Slow Training**: Ensure GPU is enabled in Colab. If training is still slow, reduce the number of epochs or models in the ensemble.
+# Dataset
 
-## Acknowledgments
-- **Dataset**: Provided by Omkar Manohar Dalvi on Kaggle.
-- **Libraries**: TensorFlow, XGBoost, Scikit-learn, OpenCV, Seaborn, Matplotlib.
-- **Platform**: Google Colab for providing free GPU resources.
+* **Source**: Lungs Disease Dataset – Kaggle
+* **Classes**:
 
-## License
-This project should not be used for commercial applications without proper licensing of the dataset and dependencies.
+  * Bacterial Pneumonia
+  * Corona Virus Disease
+  * Normal
+  * Tuberculosis
+  * Viral Pneumonia
+* **Format**: JPEG, JPG, PNG
+* **Placement for Web App**: Place the dataset inside the `data` folder.
+
+> The dataset does not include COPD labels. The proposed system can be extended for COPD-specific detection when appropriate data becomes available.
+
+# System Architecture
+
+1. Load and preprocess images with augmentation.
+2. Train a custom CNN for baseline learning.
+3. Use ResNet50 and VGG16 for deep feature extraction.
+4. Combine extracted features and train an XGBoost meta-learner.
+5. Evaluate all models using standard metrics.
+6. Deploy the final ensemble model using a Streamlit interface.
+
+# Project Structure
+
+The project includes both a **Google Colab notebook** for training and a **Streamlit web interface** for deployment.
+
+### Colab Notebook Tasks
+
+* Dataset download using Kaggle API
+* Preprocessing with augmentation
+* Training of custom CNN
+* Feature extraction using ResNet50 and VGG16
+* Ensemble training using XGBoost
+* Model evaluation
+* Visualization of training history
+* Saving metrics, plots, and trained models to Google Drive
+
+### Streamlit Web Application Tasks
+
+* Load trained models
+* Accept user-uploaded chest X-ray image
+* Preprocess and classify image
+* Display final disease prediction
+* Provide probability scores
+* Show intermediate features when required
+
+# Prerequisites
+
+### For Google Colab
+
+* Google Colab account
+* Kaggle account and API key
+* Google Drive for saving output
+
+### For Local Streamlit Application
+
+* Python 3
+* Required dependencies installed
+* Dataset placed in `data/`
+
+# Dependencies
+
+The system uses the following libraries:
+
+* tensorflow
+* opencv-python
+* xgboost
+* scikit-learn
+* seaborn
+* matplotlib
+* numpy
+* pandas
+* kaggle
+* streamlit
+
+# How to Run
+
+## 1. Run the Streamlit Web Application Locally
+
+```bash
+python -m streamlit run web_app/web.py
+```
+
+Ensure the dataset is placed in the `data/` directory.
+
+## 2. Run the Full Training Pipeline in Google Colab
+
+### Steps
+
+1. Open Google Colab.
+2. Copy contents of the training notebook into a Colab file.
+3. Enable GPU under Runtime settings.
+4. Upload your Kaggle API key (`kaggle.json`).
+5. Run all cells to perform:
+
+   * Dataset download
+   * Preprocessing
+   * CNN training
+   * ResNet50 and VGG16 feature extraction
+   * XGBoost meta-learner training
+   * Evaluation and visualization
+   * Saving all outputs to Google Drive
+
+# Outputs
+
+## Models
+
+* `cnn_model.h5`
+* `xgb_model.json`
+* Extracted feature files
+* Saved Streamlit-ready model files
+
+## Plots
+
+* `cnn_training_plot.png`
+* `confusion_matrix.png`
+
+## Metrics
+
+* `metrics.txt` stored in Google Drive
+* Accuracy, precision, recall, and F1-score for validation and test sets
+
+## Console Output
+
+* Training logs
+* Evaluation metrics
+* Confusion matrix
+
+# Output Screenshots (Web Application)
+
+![Screenshot 1](images/Screenshot%202025-03-13%20163816.png)
+![Screenshot 2](images/Screenshot%202025-03-13%20163845.png)
+![Screenshot 3](images/Screenshot%202025-03-13%20163901.png)
+![Screenshot 4](images/Screenshot%202025-03-13%20164046.png)
+![Screenshot 5](images/Screenshot%202025-03-13%20164121.png)
+![Screenshot 6](images/Screenshot%202025-03-13%20164420.png)
+
+# Expected Results
+
+* Custom CNN provides a moderate accuracy baseline.
+* Ensemble model combining CNN, ResNet50, and VGG16 features achieves higher accuracy, generally above 90 percent depending on preprocessing.
+* Confusion matrix highlights classification strength across disease classes.
+* Training history visualizations show performance trends.
+
+# Notes for Research
+
+* COPD-specific detection requires datasets with COPD labels.
+* The ensemble system can be extended using more advanced feature selection methods.
+* Literature review can be expanded using X-ray based deep learning studies.
+* Incorporating clinical data may improve COPD performance.
+
+# Future Work
+
+* Add DenseNet, InceptionV3, or EfficientNet models.
+* Explore 3D CNNs for CT scan datasets.
+* Integrate optimization algorithms for feature selection.
+* Deploy on cloud for real-time clinical use.
+* Improve explainability with Grad-CAM or similar tools.
+
+# Troubleshooting
+
+### Kaggle API Failure
+
+Regenerate `kaggle.json` if download fails.
+
+### Memory Issues in Colab
+
+Reduce batch size or image resolution.
+
+### Slow Training
+
+Confirm GPU is enabled.
+
+### Streamlit Errors
+
+Check model paths and dataset folder structure.
+
+# Research Publication Reference
+
+S. Choudhary, A. P. Singh and A. Tiwari, “Development of Ensemble Learning Algorithms for Pulmonary Disease Detection System,” ICDSAAI 2025, Chennai, India, pp. 1–6.
+DOI: 10.1109/ICDSAAI65575.2025.11011653.
+
+# License
+
+This project is for academic use. Commercial use requires appropriate licensing.

@@ -1,0 +1,6 @@
+Download and Place in 'data' folder
+
+https://www.kaggle.com/datasets/omkarmanohardalvi/lungs-disease-dataset-4-types
+
+Run command
+python -m streamlit run web_app/web.py
